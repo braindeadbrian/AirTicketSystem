@@ -1,0 +1,56 @@
+{% extends "customerbase.html" %}
+{% block title %} Purchase Ticket {% endblock %}
+{% block content %}
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+</style>
+<table>
+  <tr>
+    <th>Airline Name</th>
+    <th>Flight Number</th>
+    <th>Final Price</th>
+    <th>Departure Date</th>
+    <th>Departure Time</th>
+  </tr>
+  <tr>
+    <td> {{name}}</td>
+    <td> {{number}}</td>
+    <td> {{price}}</td>
+    <td>{{date}}</td>
+    <td>{{time}}</td>
+  </tr>
+</table>
+<h1> Please Enter Payment Information:</h1>
+<div> 
+  <form action="" method="post">
+      <label for="name"> Card Type:
+      <input type="radio" name="cardType" value="Credit"> Credit
+      <input type="radio" name="cardType" value="Debit"> Debit
+      <br/>
+      <label for="name"> Card Number: </label>
+      <input type="text" name="cardNumber" placeholder="1122334455667788" required/>
+      <br/>
+      <label for="name"> Card Name: </label>
+      <input type="text" name="cardName" placeholder="John Smith" required/>
+      <br/>
+      <label> Card Expiration Date: </label>
+      <input type="date" name="expDate" required>
+      <br/>
+      <input type="submit" value="Purchase">
+  </form>
+</div>
+{% if error %}
+{{error}}
+{% endif %}
+
+{% endblock %}
